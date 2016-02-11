@@ -1,3 +1,4 @@
+int j = 20;
 public void setup()
 {
 	size (650, 650);
@@ -5,16 +6,20 @@ public void setup()
 }
 public void draw()
 {
-	sierpinski(10,585, 600);
+	sierpinski(15,620, 600);
+	sierpinski(300+ j, 400, j/2);
+	sierpinski(300- j, 400, j/2);
 }
 public void mouseClicked()//optional
 {
 	fill((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
-}
+	j += 10;
+} 
 public void sierpinski(int x, int y, int len) 
 {
 
-	if (len > 12)
+
+	if (len > 2)
 	{
 		sierpinski(x,y,len/2);
 		sierpinski(x+len/2, y, len/2);
@@ -25,4 +30,5 @@ public void sierpinski(int x, int y, int len)
 		noStroke();
 		triangle(x,y,x+len/2, y+len, x-len/2, y+len);
 	}
+
 }
